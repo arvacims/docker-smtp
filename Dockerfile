@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-20171009
 
 MAINTAINER Oluwaseun Obajobi "oluwaseun.obajobi@namshi.com"
 
