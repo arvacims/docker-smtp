@@ -1,15 +1,23 @@
-smtp:
-  build: .
-  ports:
-   - "25:25"
-  environment:
-    GMAIL_USER:
-    GMAIL_PASSWORD:
-    SES_USER:
-    SES_PASSWORD:
-    SES_REGION:
-    RELAY_NETWORKS:
-    RELAY_DOMAINS:
-    KEY_PATH:
-    CERTIFICATE_PATH:
-    MAILNAME:
+version: "3.4"
+
+services:
+
+  smtp:
+    build: "."
+    image: "arvacims/smtp:1.0.0"
+    environment:
+      - "CERTIFICATE_PATH="
+      - "GMAIL_PASSWORD="
+      - "GMAIL_USER="
+      - "KEY_PATH="
+      - "MAILNAME="
+      - "RELAY_DOMAINS="
+      - "RELAY_NETWORKS="
+      - "SES_PASSWORD="
+      - "SES_REGION="
+      - "SES_USER="
+    ports:
+      - target: 25
+        published: 25
+        protocol: "tcp"
+        mode: "host"
